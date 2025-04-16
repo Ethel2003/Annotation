@@ -1,7 +1,7 @@
 // core/server/eventHandle.js
 
 /**
- * gerer les evennemments du serveur https
+ * gerer les evenemments du serveur https
  * @param {*} server 
  * @param {*} host 
  * @param {*} port 

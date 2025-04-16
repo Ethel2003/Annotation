@@ -8,18 +8,17 @@ const morgan = require("morgan");// Middleware d'enregistrement de requêtes HTT
 const helmet = require("helmet");
 const express = require("express");
 const compression = require("compression");
-const sslOptions = require("./ssl");
+// const sslOptions = require("./ssl");
 const corsOrigin = require("./cors");
 const routesConfig = require("./routesConfig");
-const { sessionConfig } = require("./session");
 const setOrigin = require("../core/cors/setOrigin");
-const connectToDatabase = require("../config/database");
+const connectToDatabase = require("../configs/database");
 const logger = require("../core/logging/globalLogging");
 const handleServerEvent = require("../core/server/eventHandler");
 
 // Configuration
 const app = express();
-const server = http.createServer(sslOptions,app);
+const server = http.createServer(app);
 const PORT = process.env.APP_PORT || 4000;
 const HOST = process.env.APP_HOST || "0.0.0.0";
 
@@ -41,23 +40,23 @@ app.use(morgan("dev")); // Journalisation des requêtes HTTP
 app.use(helmet()); // Sécurisation des en-têtes HTTP
 
 // Se connecter à la base de données par défaut
-connectToDatabase();
+connectToDatabase.connectToDatabase();
 
 //configuration de la session
-app.use(sessionConfig);
+// app.use(sessionConfig);
 // app.use(sessionMiddleware);
 
 // Montage des routeurs à partir du fichier de configuration
-// routesConfig.forEach((route) => {
-//   const { path, router, middleware } = route;
-//   if (middleware && middleware.length > 0) {
-//     // Si la route nécessite un middleware,on l'utilise avant de monter le routeur
-//     app.use(`/api${path}`, middleware, router);
-//   } else {
-//     // Sinon, on monte simplement le routeur
-//     app.use(`/api${path}`, router);
-//   }
-// });
+routesConfig.forEach((route) => {
+  const { path, router, middleware } = route;
+  if (middleware && middleware.length > 0) {
+    // Si la route nécessite un middleware,on l'utilise avant de monter le routeur
+    app.use(`/api${path}`, middleware, router);
+  } else {
+    // Sinon, on monte simplement le routeur
+    app.use(`/api${path}`, router);
+  }
+});
 
 //middleware pour la durée de vie des requetes
 app.use((req, res, next) => {
@@ -84,4 +83,4 @@ server.headersTimeout = 65000; // 65 secondes, doit être supérieur à keepAliv
 server.listen(PORT, HOST);
 handleServerEvent(server, HOST, PORT);
 
-module.exports.io = io;
+
