@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex justify-between items-center w-full border-b border-slate-200 shadow-md px-6 py-3 bg-white"
+    class="flex justify-between items-center w-full border-b border-slate-200 shadow-md px-6 py-3 bg-white z-20 max-h-[30%]"
   >
     <!-- Logo & Search -->
     <div class="flex items-center gap-10 w-1/2">

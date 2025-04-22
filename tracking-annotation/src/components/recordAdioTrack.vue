@@ -6,7 +6,7 @@ let tasks = ref([
         id: 1,
         id_audio: 0,
         audio_name: 'fabrication de piste détaché.mp3',
-        audio_duree: 3
+        audio_duree:' 03:54'
     },
 ]);
 
@@ -45,28 +45,59 @@ const newNameAudio = ref('');
 const newDureeAudio = ref('')
 
 let id = 0;
+
 function addNewForm() {
-  if (newNameAudio.value.trim() !== '' && newDureeAudio.value.trim() !== '') {
-    const [minutes, secondes] = newDureeAudio.value.split(":").map(Number);
+    if (newNameAudio.value.trim() !== '' && newDureeAudio.value.trim() !== '') {
+        // Vérifier si la durée dépasse 60 minutes
+        const durationParts = newDureeAudio.value.split(":").map(Number);
+        if (durationParts.length === 2) {
+            // Format mm:ss
+            const [minutes, secondes] = durationParts;
+            if (minutes >= 60) {
+                Swal.fire("Veuillez entrer la durée au format hh:mm:ss si elle dépasse 60 minutes.");
+                return;
+            }
 
-    if (isNaN(minutes) || isNaN(secondes)) {
-      Swal.fire("Veuillez entrer la durée au format mm:ss");
-      return;
+            // Ajouter la tâche au tableau
+            tasks.value.push({
+                id: id++,
+                audio_name: newNameAudio.value,
+                audio_duree: newDureeAudio.value // on garde le format 'mm:ss'
+            });
+
+            newNameAudio.value = '';
+            newDureeAudio.value = '';
+            showForm.value = false;
+
+        } else if (durationParts.length === 3) {
+            // Format hh:mm:ss
+            const [heure, minutes, secondes] = durationParts;
+
+            if (isNaN(minutes) || isNaN(secondes)) {
+                Swal.fire("Veuillez entrer la durée au format hh:mm:ss.");
+                return;
+            }
+
+            // Ajouter la tâche au tableau
+            tasks.value.push({
+                id: id++,
+                audio_name: newNameAudio.value,
+                audio_duree: newDureeAudio.value // on garde le format 'hh:mm:ss'
+            });
+
+            newNameAudio.value = '';
+            newDureeAudio.value = '';
+            showForm.value = false;
+
+        } else {
+            Swal.fire("Veuillez entrer la durée dans un format valide (min:ss ou hh:mm:ss).");
+        }
+
+    } else {
+        Swal.fire("Veuillez renseigner tous les champs !");
     }
-
-    tasks.value.push({
-      id: id++,
-      audio_name: newNameAudio.value,
-      audio_duree: newDureeAudio.value // on garde le format 'mm:ss'
-    });
-
-    newNameAudio.value = '';
-    newDureeAudio.value = '';
-    showForm.value = false;
-  } else {
-    Swal.fire("Veuillez renseigner tous les champs !");
-  }
 }
+
     
 // Méthode pour supprimer une ligne
 function deleteTasks(index) {
@@ -159,16 +190,15 @@ function edit(index){
                             <th class=" p-2 text-center">N°</th>
                             <!-- <th class=" p-2 text-center">ID de la piste Audio</th> -->
                             <th class=" p-2 text-center">ID de la piste Audio</th>
-                            <th class=" p-2 text-center">Durée de la piste audio</th>
+                            <th class=" p-2 text-center">Durée de la piste audio (mm:ss)</th>
                             <th class=" p-2 text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(task, index) in tasks" :key="index" class="odd:bg-[#dde7f1] even:bg-[#CBD5E1] border-b-3 border-[#e3e9f1] cursor-pointer hover:bg-[#F1F5F9] w-[100%]" >
                             <td class="p-2 text-center font-serif">{{ index + 1 }}</td>
-                            <!-- <td class="p-2 text-center font-serif">{{ task.id_audio }}</td> -->
                             <td class="p-2 text-center font-mono">{{ task.audio_name }}</td>
-                            <td class="p-2 text-center font-serif">{{ task.audio_duree }} min</td>
+                            <td class="p-2 text-center font-serif">{{ task.audio_duree }}  </td>
                             <td class="p-2 text-center">
                                 <div class="flex gap-2 justify-center items-center h-full">
                 
@@ -236,7 +266,7 @@ function edit(index){
                             v-model="newDureeAudio"
                             type="text"
                             id="dureeaudio"
-                            placeholder="Ex: 03:45"
+                            placeholder="Format: 00:00"
                             pattern="^\\d{1,2}:\\d{2}$"
                             class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required>

@@ -10,7 +10,7 @@ const openParametre = ref(false)
 
 <template>
   <div
-    class="relative flex w-full max-w-[15rem] flex-col bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5">
+    class=" flex w-full max-w-[15rem]  flex-col bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5 max-h-[100%]">
     <nav class="flex flex-col gap-4 p-2 font-sans text-base font-normal text-blue-gray-700">
       <!-- Dashboard -->
       <div class="relative block w-full">
@@ -147,20 +147,22 @@ const openParametre = ref(false)
 
       <!-- Statistiques -->
       <div class="relative block w-full">
-        <div role="button"
-          class="flex items-center w-full transition-all rounded-lg text-start hover:bg-gray-200 focus:bg-gray-200">
-          <button type="button"
-            class="flex items-center justify-between w-full p-4 text-left transition-colors rounded-md text-gray-800 hover:text-gray-900 cursor-pointer">
-            <div class="grid mr-6 place-items-center">
-              <!-- Icône Statistiques -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="m7.4 16l3.05-3.05l2 2L16 11.425V13h2V8h-5v2h1.575l-2.125 2.125l-2-2L6 14.6zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z" />
-              </svg>
-            </div>
-            <p class="mr-auto text-md">Statistiques</p>
-          </button>
-        </div>
+        <router-link to="/statistique">
+          <div role="button"
+            class="flex items-center w-full transition-all rounded-lg text-start hover:bg-gray-200 focus:bg-gray-200">
+            <button type="button"
+              class="flex items-center justify-between w-full p-4 text-left transition-colors rounded-md text-gray-800 hover:text-gray-900 cursor-pointer">
+              <div class="grid mr-6 place-items-center">
+                <!-- Icône Statistiques -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="m7.4 16l3.05-3.05l2 2L16 11.425V13h2V8h-5v2h1.575l-2.125 2.125l-2-2L6 14.6zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z" />
+                </svg>
+              </div>
+              <p class="mr-auto text-md">Statistiques</p>
+            </button>
+          </div>
+        </router-link>
       </div>
 
       <!-- Deconnexion (Nouvelle icône) -->

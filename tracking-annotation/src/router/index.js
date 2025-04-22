@@ -1,6 +1,7 @@
 import RolesApp from '@/components/RolesApp.vue'
 import Utilisateurs from '@/components/Utilisateurs.vue'
 import AnnotatorInterface from '@/views/annotatorInterface.vue'
+import AudioStats from '@/views/audioStats.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import Evaluation from '@/views/evaluation.vue'
 import ListeCriteres from '@/views/listeCriteres.vue'
@@ -30,6 +31,10 @@ const router = createRouter({
             {
               path:'/critere-evaluation',
               component:ListeCriteres
+            },
+            {
+              path:'/statistique',
+              component:AudioStats,
             },
           ],
         },
