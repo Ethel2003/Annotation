@@ -1,8 +1,22 @@
-<script setup></script>
+<script setup>
+import { users,roles } from '@/data/userData';
+import { onMounted, ref } from 'vue';
+
+const currentUser = ref({})
+ 
+onMounted(() => {
+  const data = localStorage.getItem('currentUser')//recuperer dans data l'objet enregistrer dans currentUser
+  if (data) {
+    currentUser.value = JSON.parse(data)//affecte les informations de l'utilisateur a currentUser
+  }
+})
+
+
+</script>
 
 <template>
   <div
-    class="flex justify-between items-center w-full border-b border-slate-200 shadow-md px-6 py-3 bg-white"
+    class="flex justify-between items-center w-full border-b border-slate-200 shadow-md px-6 py-3 bg-white  z-20 max-h-[30%]"
   >
     <!-- Logo & Search -->
     <div class="flex items-center gap-10 w-1/2">
@@ -48,7 +62,7 @@
             d="M5.85 17.1q1.275-.975 2.85-1.537T12 15t3.3.563t2.85 1.537q.875-1.025 1.363-2.325T20 12q0-3.325-2.337-5.663T12 4T6.337 6.338T4 12q0 1.475.488 2.775T5.85 17.1M12 13q-1.475 0-2.488-1.012T8.5 9.5t1.013-2.488T12 6t2.488 1.013T15.5 9.5t-1.012 2.488T12 13m0 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
           />
         </svg>
-        <h1 class="font-semibold text-lg text-gray-700">Nom d'utilisateur</h1>
+        <h1 class="font-semibold text-lg text-gray-700">Bienvenue {{currentUser.firstName}}</h1>
       </div>
 
       <button class="hover:bg-gray-100 p-2 rounded-full transition">

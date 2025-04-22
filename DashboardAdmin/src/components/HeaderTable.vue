@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+
+const emit = defineEmits(['response']);
+// const emitRole = defineEmits(['responseRole']);
+
+
+
+</script>
 
 <template>
      
@@ -84,7 +91,7 @@
         </div>
       </div>
       <div class="flex gap-2">
-        <button class="bg-blue-600 text-white px-4 py-2 font-bold rounded-lg">+ Ajouter</button>
+        <button @click="emit('response')" class="bg-blue-600 text-white px-4 py-2 font-bold rounded-lg">+ Ajouter</button>
         <button
           class="border px-3 py-2 mx-2 rounded-lg flex items-center font-semibold border-gray-300"
         >
@@ -104,6 +111,11 @@
         </button>
       </div>
     </div>
+
+  <!-- Section pour afficher le formulaire d'ajout -->
+
+
+
 </template>
 
 <style scoped></style>

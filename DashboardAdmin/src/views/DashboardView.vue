@@ -8,14 +8,17 @@ import MainApp from '@/components/MainApp.vue'
 <template>
   <div class="flex flex-col h-screen">
     <HeaderApp />
-    <div class="main flex w-full h-screen">
+    <div class="main flex w-full h-screen overflow-hidden">
       <SidebarApp />
-      <div class="flex flex-col justify-between w-full">
+      <div class="flex flex-col justify-between w-full overflow-y-scroll">
         <MainApp />
-        <FooterApp class="fixed bottom-0" />
       </div>
+    </div>
+    <div class="bottom-0 pt-10">
+      <FooterApp  />
     </div>
   </div>
 </template>
+
 
 <style scoped></style>

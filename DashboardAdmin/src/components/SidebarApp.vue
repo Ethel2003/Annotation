@@ -8,7 +8,7 @@ const openParametre = ref(false)
 
 <template>
   <div
-    class="relative flex w-full max-w-[15rem] flex-col bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5"
+    class="relative flex w-full max-w-[15rem] flex-col bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5 max-h-[100%]"
   >
     <nav class="flex flex-col gap-4 p-2 font-sans text-base font-normal text-blue-gray-700">
       <!-- Dashboard -->
