@@ -10,7 +10,7 @@ import MainApp from '@/components/MainApp.vue'
     <HeaderApp />
     <div class="main flex w-full h-screen overflow-hidden">
       <SidebarApp />
-      <div class="flex flex-col justify-between w-full overflow-scroll">
+      <div class="flex flex-col justify-between w-full overflow-y-scroll">
         <MainApp />
       </div>
     </div>
