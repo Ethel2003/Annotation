@@ -1,9 +1,9 @@
-// import Routes files
-
+const authRoutes = require("../routes/authRoutes")
 
 const routesConfig = [
-  // Example = { path: "/auth", router: authRoutes } 
-    
+  { path: "/auth", router: authRoutes },
+  
+  
 ];
 
 module.exports = routesConfig;
