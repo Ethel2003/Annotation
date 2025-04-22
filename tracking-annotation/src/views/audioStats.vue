@@ -123,11 +123,13 @@ const chartOptions = computed(() => {
 <template>
     <section>
         <h1 class="font-bold text-3xl bg-gray-300 p-4 text-center">Statistiques</h1><br><br>
-
-        <div class="max-w-[80vw] mx-auto">
+        <div class="max-w-[90%] mx-auto">
+          <v-chart class="chart" :option="chartOptions" autoresize />
+        </div>
+        
+        <div class="max-w-[100%] mx-auto">
 
               <!-- Graphique -->
-            <v-chart class="chart" :option="chartOptions" autoresize />
            
             <div>
                 <table class="mx-auto w-full  text-center ">
