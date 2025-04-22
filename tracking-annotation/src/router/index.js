@@ -3,6 +3,7 @@ import Utilisateurs from '@/components/Utilisateurs.vue'
 import AnnotatorInterface from '@/views/annotatorInterface.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import Evaluation from '@/views/evaluation.vue'
+import ListeCriteres from '@/views/listeCriteres.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -10,7 +11,7 @@ const router = createRouter({
   routes: [
 
        {
-          path: '/admin',
+          path: '/',
           name: 'Dashboard',
           component: DashboardView,
           children: [
@@ -23,8 +24,12 @@ const router = createRouter({
               component: Utilisateurs,
             },
             {
-              path:'/evaluation',
+              path:'/annotation',
               component:Evaluation
+            },
+            {
+              path:'/critere-evaluation',
+              component:ListeCriteres
             },
           ],
         },
