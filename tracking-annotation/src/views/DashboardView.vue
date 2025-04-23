@@ -21,3 +21,4 @@ import MainApp from '@/components/MainApp.vue'
 </template>
 
 <style scoped></style>
+

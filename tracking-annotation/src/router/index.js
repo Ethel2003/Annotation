@@ -1,3 +1,4 @@
+import EvaluationPiste from '@/components/EvaluationPiste.vue'
 import RolesApp from '@/components/RolesApp.vue'
 import Utilisateurs from '@/components/Utilisateurs.vue'
 import AnnotatorInterface from '@/views/annotatorInterface.vue'
@@ -45,6 +46,10 @@ const router = createRouter({
             {
               path:'/statistique',
               component:AudioStats,
+            },
+            {
+              path:'/evaluateur',
+              component:EvaluationPiste,
             },
           ],
         },
