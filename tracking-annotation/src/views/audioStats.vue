@@ -10,23 +10,23 @@ use([CanvasRenderer, LineChart, TitleComponent, TooltipComponent, GridComponent,
 
 let criteres = [
     {date: '2025-04-15', naf: '5', nma: '70min', st: '25', obj: '✔'},
-    {date: '2025-04-16', naf: '2', nma: '28min', st: '15', obj: '❌'},
+    {date: '2025-04-16', naf: '2', nma: '78min', st: '15', obj: '✔'},
     {date: '2025-04-17', naf: '6', nma: '80min', st: '10', obj: '✔'},
-    {date: '2025-04-18', naf: '2', nma: '15min', st: '5', obj: '❌'},
-    {date: '2025-04-19', naf: '3', nma: '45min', st: '20', obj: '✔'},
+    {date: '2025-04-18', naf: '2', nma: '95min', st: '5', obj: '✔'},
+    {date: '2025-04-19', naf: '3', nma: '78min', st: '20', obj: '✔'},
     {date: '2025-04-20', naf: '8', nma: '100min', st: '30', obj: '✔'},
-    {date: '2025-04-21', naf: '4', nma: '55min', st: '18', obj: '❌'},
+    {date: '2025-04-21', naf: '4', nma: '105min', st: '18', obj: '✔'},
     {date: '2025-04-22', naf: '7', nma: '90min', st: '40', obj: '✔'},
-    {date: '2025-04-23', naf: '1', nma: '10min', st: '3', obj: '❌'},
+    {date: '2025-04-23', naf: '1', nma: '100min', st: '3', obj: '✔'},
     {date: '2025-04-24', naf: '9', nma: '120min', st: '50', obj: '✔'},
-    {date: '2025-04-25', naf: '3', nma: '30min', st: '12', obj: '✔'},
-    {date: '2025-04-26', naf: '5', nma: '70min', st: '25', obj: '❌'},
+    {date: '2025-04-25', naf: '3', nma: '96min', st: '12', obj: '✔'},
+    {date: '2025-04-26', naf: '5', nma: '70min', st: '25', obj: '✔'},
     {date: '2025-04-27', naf: '6', nma: '80min', st: '35', obj: '✔'},
-    {date: '2025-04-28', naf: '2', nma: '15min', st: '6', obj: '❌'},
+    {date: '2025-04-28', naf: '2', nma: '55min', st: '6', obj: '❌'},
     {date: '2025-04-29', naf: '7', nma: '90min', st: '40', obj: '✔'},
-    {date: '2025-04-30', naf: '4', nma: '50min', st: '20', obj: '✔'},
-    {date: '2025-05-01', naf: '8', nma: '100min', st: '35', obj: '❌'},
-    {date: '2025-05-02', naf: '3', nma: '40min', st: '15', obj: '✔'},
+    {date: '2025-04-30', naf: '4', nma: '50min', st: '20', obj: '❌'},
+    {date: '2025-05-01', naf: '8', nma: '100min', st: '35', obj: '✔'},
+    {date: '2025-05-02', naf: '3', nma: '40min', st: '15', obj: '❌'},
     {date: '2025-05-03', naf: '6', nma: '80min', st: '30', obj: '✔'}
 ];
 
@@ -121,40 +121,41 @@ const chartOptions = computed(() => {
 </script>
 
 <template>
-    <section>
-        <h1 class="font-bold text-3xl bg-gray-300 p-4 text-center">Statistiques</h1><br><br>
-        <div class="max-w-[90%] mx-auto">
-          <v-chart class="chart" :option="chartOptions" autoresize />
+    <section class="w-[100%] h-screen">
+        <div class="bg-[#F1F5F9] h-[100%]">
+          <h1 class="font-bold text-3xl bg-gray-300 p-4 text-center">Statistiques</h1><br><br>
+          <div class="max-w-[90%] mx-auto">
+            <v-chart class="chart" :option="chartOptions" autoresize />
+          </div>
+          
+          <div class="max-w-[96%] mx-auto">
+                <!-- Graphique -->
+          
+              <div>
+                  <table class="mx-auto w-full  text-center ">
+                      <thead>
+                          <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 ">
+                              <th class=" p-2 bg-gray-300 text-center">Date</th>
+                              <th class=" p-2 bg-gray-300 text-center">Nombre d'annotation faites</th>
+                              <th class=" p-2 bg-gray-300 text-center">Nombre de minutes annotées</th>
+                              <th class=" p-2 bg-gray-300 text-center ">Score total</th>
+                              <th class=" p-2  bg-gray-300 text-center">Objectif</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 odd:bg-[#F8FAFC] even:bg-[#cbd5e1b2] cursor-pointer" v-for="(critere, index) in criteres" :key="index" >
+                              <td class=" dark:hover:bg-gray-70  p-2">{{ critere.date }}</td>
+                              <td class=" dark:hover:bg-gray-70  p-2">{{ critere.naf }}</td>
+                              <td class=" dark:hover:bg-gray-70  p-2">{{ critere.nma }}</td>
+                              <td class=" dark:hover:bg-gray-70  p-2">{{ critere.st }}</td>
+                              <td class=" dark:hover:bg-gray-70  p-2">{{ critere.obj }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
         </div>
-        
-        <div class="max-w-[100%] mx-auto">
-
-              <!-- Graphique -->
-           
-            <div>
-                <table class="mx-auto w-full  text-center ">
-                    <thead>
-                        <tr class="hover:bg-gray-200 dark:hover:bg-gray-70">
-                            <th class=" p-2 bg-gray-300 text-center">Date</th>
-                            <th class=" p-2 bg-gray-300 text-center">Nombre d'annotation faites</th>
-                            <th class=" p-2 bg-gray-300 text-center">Nombre de minutes annotées</th>
-                            <th class=" p-2 bg-gray-300 text-center ">Score total</th>
-                            <th class=" p-2 bg-gray-300 text-center">Objectif</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 odd:bg-[#F8FAFC] even:bg-[#cbd5e1b2] cursor-pointer" v-for="(critere, index) in criteres" :key="index" >
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.date }}</td>
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.naf }}</td>
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.nma }}</td>
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.st }}</td>
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.obj }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+      </section>
 </template>
 
 

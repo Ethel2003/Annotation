@@ -167,7 +167,7 @@ function edit(index){
 
 <template>
     <!-- Tableau affichant la liste des tâches -->
-    <section class="w-[100%] h-[100%]">
+    <section class="w-[100%] h-screen">
         <div class=" mx-auto bg-[#F1F5F9] p-[2em] h-[100%]">
             <div class=" flex justify-between items-center">
                 <h1 class="font-bold text-2xl mr-[1em]">Enregistrement d'une piste audio</h1>
@@ -183,23 +183,22 @@ function edit(index){
                 </button>
             </div>
             <div class="flex justify-center w-[100%]">
-                <table class="my-4 w-[100%]">
+                <table class="my-4 w-[100%] ">
                     <!-- En tête du tableau d'ajout des piste audio -->
-                    <thead class="border-b-8 border-[#e3e9f1] ">
+                    <thead class=" border-[#e3e9f1] ">
                         <tr>
-                            <th class=" p-2 text-center">N°</th>
-                            <!-- <th class=" p-2 text-center">ID de la piste Audio</th> -->
-                            <th class=" p-2 text-center">ID de la piste Audio</th>
-                            <th class=" p-2 text-center">Durée de la piste audio (mm:ss)</th>
-                            <th class=" p-2 text-center">Action</th>
+                            <th class=" p-4   text-center bg-gray-300">N°</th>
+                            <th class=" p-4  text-center bg-gray-300">ID de la piste Audio</th>
+                            <th class=" p-4  text-center bg-gray-300">Durée de la piste audio (mm:ss)</th>
+                            <th class=" p-4 text-center bg-gray-300">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(task, index) in tasks" :key="index" class="odd:bg-[#dde7f1] even:bg-[#CBD5E1] border-b-3 border-[#e3e9f1] cursor-pointer hover:bg-[#F1F5F9] w-[100%]" >
-                            <td class="p-2 text-center font-serif">{{ index + 1 }}</td>
-                            <td class="p-2 text-center font-mono">{{ task.audio_name }}</td>
-                            <td class="p-2 text-center font-serif">{{ task.audio_duree }}  </td>
-                            <td class="p-2 text-center">
+                        <tr v-for="(task, index) in tasks" :key="index" class="odd:bg-[#F8FAFC] even:bg-[#dde6f0] border-b-3 border-[#e3e9f1] cursor-pointer hover:bg-[#b3b8bdaf] w-[100%]" >
+                            <td class="p-3  text-center font-serif">{{ index + 1 }}</td>
+                            <td class="p-3  text-center font-mono">{{ task.audio_name }}</td>
+                            <td class="p-3  text-center font-serif">{{ task.audio_duree }}  </td>
+                            <td class="p-3 text-center">
                                 <div class="flex gap-2 justify-center items-center h-full">
                 
                                     <button   class="bg-[#2563EB] hover:bg-blue-700 text-white px-2 py-2 font-bold rounded-md flex gap-3"
