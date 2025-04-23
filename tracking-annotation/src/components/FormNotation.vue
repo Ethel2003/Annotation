@@ -74,7 +74,7 @@ function sendRefreshSignal () {
 
             <table
                 v-if="userGlobale.tabNoteCritere.length != 0"
-                class="border border-solid border-gray-400 w-full max-w-md text-center mt-4"
+                class="border border-solid border-gray-900 w-full text-gray-950 max-w-md text-center mt-4"
             >
                 <thead>
                     <tr>
