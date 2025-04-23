@@ -10,6 +10,9 @@ import Evaluation from '@/views/evaluation.vue'
 import ListeCriteres from '@/views/listeCriteres.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { createPinia } from 'pinia'
+import { useAuthStore } from '@/data/auth'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -58,5 +61,29 @@ const router = createRouter({
        
   ],
 })
+
+// ⚠️ Important : on initialise Pinia ici pour pouvoir accéder au store
+const pinia = createPinia()
+
+// Garde globale de navigation
+router.beforeEach((to, from, next) => {
+
+  const auth = useAuthStore(pinia)   // On récupère le store
+
+  // if ( to.path !== '/login' && !auth.isAuthentificated && to.meta.requiresAuth) {
+
+  if ( to.path !== '/login' && !auth.isAuthentificated) {
+
+
+    // Si la route est protégée et que l'utilisateur n'est pas connecté, on redirige
+    next({ name: 'Connexion' })
+  } else {
+    // auth.isAuthentificated=true
+    auth.login()
+
+    next()
+  }
+})
+
 
 export default router

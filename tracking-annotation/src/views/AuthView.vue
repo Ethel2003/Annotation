@@ -20,6 +20,8 @@ function login() {
   if (!user) {
     errorMessage.value = 'Identifiant ou mot de passe incorrect.'
   } else {
+  console.log('user connecté');
+    
     errorMessage.value = ''
 //enregistrer les données de l'utilisateur dans localStorage
     localStorage.setItem('currentUser', JSON.stringify(user))
