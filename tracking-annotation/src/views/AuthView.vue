@@ -1,8 +1,8 @@
 <script setup>
 
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { users,roles } from '../data/userData'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { users,roles } from '../data/userData';
  
 const loginInput = ref('')
 const passwordInput = ref('')
