@@ -1,5 +1,5 @@
 <script setup>
-import HeaderApp from '../components/HeaderApp.Vue'
+import HeaderApp from '../components/HeaderApp.vue'
 import SidebarApp from '../components/SidebarApp.Vue'
 import FooterApp from '../components/FooterApp.Vue'
 import MainApp from '@/components/MainApp.vue'
@@ -21,4 +21,3 @@ import MainApp from '@/components/MainApp.vue'
 </template>
 
 <style scoped></style>
-

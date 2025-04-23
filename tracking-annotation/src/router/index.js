@@ -12,6 +12,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import { createPinia } from 'pinia'
 import { useAuthStore } from '@/data/auth'
+import StatistiqueGlobales from '@/views/StatistiqueGlobales.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
             {
               path:'/statistique',
               component:AudioStats,
+            },
+            {
+              path: '/globale',
+              name: 'globale',
+              component: StatistiqueGlobales,
             },
             {
               path:'/evaluateur',
