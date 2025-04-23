@@ -33,7 +33,13 @@ const togglePage = () => {
 </script>
 
 <template>
-  
+  <!-- <div class="flex justify-end">
+    <button 
+      @click="togglePage" 
+      class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-400">
+      {{ isGlobalStatsPage ? 'Revenir à l\'évaluation' : 'Aller à Statistiques Globales' }}
+    </button>
+  </div> -->
 
   <div v-if="!isGlobalStatsPage" class="flex flex-col lg:flex-row gap-4">
     <!-- Colonne de gauche : Stats -->

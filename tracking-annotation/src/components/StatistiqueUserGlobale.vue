@@ -15,7 +15,7 @@ watch(props, (p) => {
 
 <template>
   <div class="p-6 bg-white min-h-screen">
-    <h2 class="text-xl font-bold text-gray-700 mb-4">Évaluation Mensuelle des Annotateurs</h2>
+    <h2 class="text-xl font-bold text-gray-700 mb-4">Performance périodique de l'annotateur</h2>
 
     <div v-if="performanceUser">
       <div class="flex flex-col gap-4 ">
