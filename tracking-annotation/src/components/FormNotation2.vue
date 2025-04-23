@@ -3,11 +3,11 @@
   <div
     v-for="(evaluation, index) in evaluations"
     :key="index"
-    class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-gray-50 dark:bg-[#1E293B] p-4 rounded shadow-sm"
+    class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-gray-50 p-4 rounded shadow-sm"
   >
     <select
       v-model="evaluation.critere"
-      class="col-span-1 px-3 py-2 rounded border border-gray-300 bg-white dark:bg-[#1E293B] dark:text-[#F8FAFC]"
+      class="col-span-1 px-3 py-2 rounded border border-gray-300 bg-white"
     >
       <option value="">Critère...</option>
       <option v-for="critere in criteres" :key="critere" :value="critere">{{ critere }}</option>
@@ -19,7 +19,7 @@
       min="0"
       max="5"
       step="0.1"
-      class="col-span-2 px-3 py-2 border border-gray-300 rounded dark:bg-[#1E293B] dark:text-[#F8FAFC]"
+      class="col-span-2 px-3 py-2 border border-gray-300 rounded"
       placeholder="Note sur 5"
     />
 

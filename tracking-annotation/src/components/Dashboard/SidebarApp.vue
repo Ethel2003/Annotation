@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router';
 // Contrôlent l'ouverture des sous-menus (on n'en aura plus pour Evaluations et Utilisateurs)
 const openAnnotateurs = ref(false)
 const openParametre = ref(false)
+const openEvaluateur = ref(false)
 </script>
 
 <template>
@@ -34,24 +35,44 @@ const openParametre = ref(false)
         </div>
       </div>
 
-      <!-- Evaluations (Pas de sous-menu ici) -->
-      <div class="relative block w-full">
-        <router-link to="/evaluateur"
-          class="flex items-center justify-between w-full p-4 rounded-md hover:bg-gray-200 text-gray-800"
-        >
-          <div class="flex items-center gap-6">
-            <!-- Icône Evaluations -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M17.5 18.5v2q0 .2.15.35T18 21t.35-.15t.15-.35v-2h2q.2 0 .35-.15T21 18t-.15-.35t-.35-.15h-2v-2q0-.2-.15-.35T18 15t-.35.15t-.15.35v2h-2q-.2 0-.35.15T15 18t.15.35t.35.15zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v5q0 .425-.288.713T20 11t-.712-.288T19 10V5H5v14h5q.425 0 .713.288T11 20t-.288.713T10 21zm0-3v1V5v6.075V11zm2-2q0 .425.288.713T8 17h2.075q.425 0 .713-.288t.287-.712t-.287-.712t-.713-.288H8q-.425 0-.712.288T7 16m0-4q0 .425.288.713T8 13h5q.425 0 .713-.288T14 12t-.288-.712T13 11H8q-.425 0-.712.288T7 12m0-4q0 .425.288.713T8 9h8q.425 0 .713-.288T17 8t-.288-.712T16 7H8q-.425 0-.712.288T7 8m11 15q-2.075 0-3.537-1.463T13 18t1.463-3.537T18 13t3.538 1.463T23 18t-1.463 3.538T18 23"
-              />
-            </svg>
-            <p class="text-md">Evaluations</p>
-          </div>
-        </router-link>
-      </div>
+      <!-- Evaluations (sous-menu ici) -->
+      <button @click="openEvaluateur = !openEvaluateur"
+        class="flex items-center justify-between w-full p-4 rounded-md hover:bg-gray-200 text-gray-800">
+        <div class="flex items-center gap-6">
+          <!-- Icône Évaluateur -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="m9.25 22l-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.338v-.675q0-.163.025-.338L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.674q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2zm2.8-6.5q1.45 0 2.475-1.025T15.55 12t-1.025-2.475T12.05 8.5q-1.475 0-2.488 1.025T8.55 12t1.013 2.475T12.05 15.5" />
+          </svg>
+          <p class="text-md">Évaluateur</p>
+        </div>
+        <!-- Chevron pour ouvrir/fermer -->
+        <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'rotate-180': openEvaluateur }" fill="none"
+          stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
 
+      <transition name="fade-slide">
+        <div v-if="openEvaluateur" class="ml-8 mt-2 flex flex-col gap-4">
+          <router-link to="/evaluateur" class="text-md text-gray-600 hover:text-gray-900 flex items-center gap-6">
+            <!-- Icône Liste Piste -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M3 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3z" />
+            </svg>
+            Liste Piste
+          </router-link>
+          <router-link to="/globale" class="text-md text-gray-600 hover:text-gray-900 flex items-center gap-6">
+            <!-- Icône Rôles -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M3 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3z" />
+            </svg>
+            Liste globales des annotateurs
+          </router-link>
+        </div>
+      </transition>
       <!-- Utilisateurs (Pas de sous-menu ici) -->
       <div class="relative block w-full">
         <router-link

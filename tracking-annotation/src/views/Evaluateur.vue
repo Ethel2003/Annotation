@@ -10,6 +10,10 @@ import StatistiqueGlobales from './StatistiqueGlobales.vue'
 const selectedPisteForStats = ref(null)
 const selectedPisteForEvaluation = ref(null)
 const selectedPisteForForm=ref()
+
+const refreshSignal=ref('')
+const average = ref('')
+
 // Gestion du clic sur une piste
 const handlePisteClick = (piste) => {
   selectedPisteForStats.value = piste
@@ -23,19 +27,13 @@ const togglePage = () => {
   isGlobalStatsPage.value = !isGlobalStatsPage.value
 }
 
-const refreshSignal=ref('')
+
 
 // watch(refreshSignal, ()=>{alert(refreshSignal)})
 </script>
 
 <template>
-  <div class="flex justify-end">
-    <button 
-      @click="togglePage" 
-      class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-400">
-      {{ isGlobalStatsPage ? 'Revenir à l\'évaluation' : 'Aller à Statistiques Globales' }}
-    </button>
-  </div>
+  
 
   <div v-if="!isGlobalStatsPage" class="flex flex-col lg:flex-row gap-4">
     <!-- Colonne de gauche : Stats -->
@@ -44,17 +42,18 @@ const refreshSignal=ref('')
     </div>
 
     <!-- Colonne de droite : Liste + Détail -->
-    <div class="lg:w-[60%] flex flex-col gap-4 mt-1 rounded-xl">
+    <div v-if="selectedPisteForEvaluation" class="lg:w-[60%] flex flex-col gap-4 mt-1 rounded-xl">
       <div class="flex justify-between">
         <div class="w-1/2">
           <StatsPiste :piste1="selectedPisteForStats" />
         </div>
         <div class="w-1/2">
-          <EvaluationPiste :piste2="selectedPisteForEvaluation" />
+          <EvaluationPiste :piste2="selectedPisteForEvaluation" :average="average"/>
         </div>
       </div>
-      <FormNotation :piste="selectedPisteForForm" @refresh="(msg)=>refreshSignal=msg"/>
+      <FormNotation :piste="selectedPisteForForm" @refresh="(msg)=>refreshSignal=msg"  @average="(msg)=>average=msg"/>
     </div>
+    <div v-else class="h-full w-[60%] text-gray-500 flex justify-center items-center text-3xl">Aucune piste sélectionnée</div>
   </div>
 
   <div v-else>

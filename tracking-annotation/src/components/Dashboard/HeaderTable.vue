@@ -6,7 +6,7 @@
      <div class="flex items-center justify-between mb-4 ml-4">
       <div class="relative w-1/3 flex justify-between">
         <input
-          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
           type="text"
           placeholder="Rechercher un utilisateur"
         />
@@ -14,7 +14,7 @@
         <div class="flex items-center space-x-2 ml-5 border-l border-l-gray-300 text-gray-500 pl-2">
           <a
             href="#"
-            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100 dark:hover:text-gray-900"
+            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100"
           >
             <svg
               class="w-6 h-6"
@@ -32,7 +32,7 @@
 
           <a
             href="#"
-            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100 dark:hover:text-gray-900"
+            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100"
           >
             <svg
               class="w-6 h-6"
@@ -50,7 +50,7 @@
 
           <a
             href="#"
-            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100 dark:hover:text-gray-900"
+            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100"
           >
             <svg
               class="w-6 h-6"
@@ -68,7 +68,7 @@
 
           <a
             href="#"
-            class="inline-flex justify-center p-1text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100 dark:hover:text-gray-900"
+            class="inline-flex justify-center p-1text-gray-500 rounded cursor-pointer hover:text-gray-300 hover:bg-gray-100"
           >
             <svg
               class="w-6 h-6"
