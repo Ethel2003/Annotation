@@ -128,7 +128,6 @@ let showModif = ref(false)
 // Méthode qui permet d'ouvrir la modification
 const openModif = (task) => {
     showModif.value = true;
-    newIdaudio.value = task.id_audio;
     newNameAudio.value = task.audio_name;
     newDureeAudio.value = task.audio_duree;
 }
@@ -142,21 +141,18 @@ const closeModif = () => {
 // methode permettant de valider les modification
 function edit(index){
         if(
-            newIdaudio.value != null &&
-            newDureeAudio.value !=null &&
+            newDureeAudio.value.trim() != '' &&
             newNameAudio.value.trim() != ''
         ){
         tasks.value.splice(index,1,(
         {
             id: index,           
-            id_audio: newIdaudio.value,
             audio_name: newNameAudio.value,
             audio_duree: newDureeAudio.value,
         })
     )
-    newIdaudio.value = null;
     newNameAudio.value = '';
-    newDureeAudio.value = null;
+    newDureeAudio.value = '';
     showModif.value=false;
     }else{
         alert("veuillez svp remplir tous les champs avant de pouvoir Ajouter")
@@ -238,7 +234,7 @@ function edit(index){
         <article class="fixed inset-0 z-10 overflow-y-auto w-screen flex items-center justify-center h-screen">
             <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-semibold text-center text-gray-700">Enregistrer les piste audio</h2>
+                    <h2 class="text-2xl font-semibold text-center text-gray-700">Enregistrer une piste audio</h2>
                     <div class="my-4 flex justify-end">
                         <button class="flex gap-4 px-4 py-1 font-bold rounded-md" @click="closeForm()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
@@ -308,7 +304,7 @@ function edit(index){
                     <!-- Champs de l'id de la piste audio -->
                     <div class="mb-4">
                         <label for="id_audio" class="block text-gray-700 font-medium mb-2">ID de la piste audio</label>
-                        <input v-model="newIdaudio" type="number" id="id_audio" name="id_audio" placeholder="Entrer l'ID de la piste audio"
+                        <input v-model="newNameAudio" type="text" id="id_audio" name="id_audio" placeholder="Entrer l'ID de la piste audio"
                             class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required>
                     </div>
@@ -323,7 +319,7 @@ function edit(index){
                     <!-- champs de l'ajout du Duree duree de la piste -->
                     <div class="mb-4">
                         <label for="dureeaudio" class="block text-gray-700 font-medium mb-2">Duree de la piste audio</label>
-                        <input v-model="newDureeAudio" type="number" id="dureeaudio" name="dureeaudio" placeholder="Entrer la duree de la piste audio"
+                        <input v-model="newDureeAudio" type="text" id="dureeaudio" name="dureeaudio" placeholder="Format: 00:00"
                             class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required>
                     </div>
