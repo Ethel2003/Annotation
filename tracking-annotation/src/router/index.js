@@ -5,6 +5,7 @@ import AnnotatorInterface from '@/views/annotatorInterface.vue'
 import AudioStats from '@/views/audioStats.vue'
 import AuthView from '@/views/AuthView.vue'
 import DashboardView from '@/views/DashboardView.vue'
+import Evaluateur from '@/views/Evaluateur.vue'
 import Evaluation from '@/views/evaluation.vue'
 import ListeCriteres from '@/views/listeCriteres.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -49,7 +50,8 @@ const router = createRouter({
             },
             {
               path:'/evaluateur',
-              component:EvaluationPiste,
+              name: 'evaluateur',
+              component:Evaluateur,
             },
           ],
         },

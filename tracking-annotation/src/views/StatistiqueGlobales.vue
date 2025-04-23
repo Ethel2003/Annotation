@@ -6,8 +6,7 @@ import StatistiqueUserGlobale from '@/components/StatistiqueUserGlobale.vue';
 </script>
 
 <template>
-   <ListeUserGlobale />
-    
+   <ListeUserGlobale />  
 </template>
 
 <style scoped></style>
