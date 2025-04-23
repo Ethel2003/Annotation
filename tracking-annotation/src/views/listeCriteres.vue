@@ -95,62 +95,62 @@ function validatedCritere(){
 </script>
 
 <template>
-    <section>
-        <h1 class="font-bold text-3xl bg-gray-300 p-4 text-center">Liste des criteres</h1>
-
-        <div class="max-w-[100%] mx-auto">
-            <div class="my-4 flex justify-end">
-                <button class="flex gap-4 bg-blue-500 hover:bg-blue-700 text-white px-3 py-3 mr-13 font-bold rounded-md"
-                    @click="openForm(false)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 12 12">
-                        <path fill="currentColor"
-                            d="M6 1.75a.75.75 0 0 1 .75.75v2.75H9.5a.75.75 0 0 1 0 1.5H6.75V9.5a.75.75 0 0 1-1.5 0V6.75H2.5a.75.75 0 0 1 0-1.5h2.75V2.5A.75.75 0 0 1 6 1.75" />
-                    </svg>
-                    <span>
-                        Add new critere
-                    </span>
-                </button>
-            </div>
-            <div>
-                <table class="mx-auto w-full  text-center ">
-                    <thead>
-                        <tr class="hover:bg-gray-200 dark:hover:bg-gray-70">
-                            <th class=" p-2 bg-gray-300 text-center">N°</th>
-                            <th class=" p-2 bg-gray-300 text-center w-4/5">Criteres</th>
-                            <th class=" p-2 bg-gray-300 text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 odd:bg-[#F8FAFC] even:bg-[#cbd5e1b2] cursor-pointer" v-for="(critere, index) in criteres" :key="index" >
-                            <td class=" dark:hover:bg-gray-70   p-2 text-center">{{ index + 1 }}</td>
-                            <td class=" dark:hover:bg-gray-70   p-2">{{ critere.name }}</td>
-                
-                            <td class=" dark:hover:bg-gray-70   p-2 text-center">
-                                <div class="flex gap-3 justify-center items-center h-full">
-                
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 py-1 font-bold rounded-md flex gap-1" @click="openForm(true, critere, index)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
-                                            <g fill="none" stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="1.5">
-                                                <path
-                                                    d="M19.09 14.441v4.44a2.37 2.37 0 0 1-2.369 2.369H5.12a2.37 2.37 0 0 1-2.369-2.383V7.279a2.356 2.356 0 0 1 2.37-2.37H9.56" />
-                                                <path
-                                                    d="M6.835 15.803v-2.165c.002-.357.144-.7.395-.953l9.532-9.532a1.36 1.36 0 0 1 1.934 0l2.151 2.151a1.36 1.36 0 0 1 0 1.934l-9.532 9.532a1.36 1.36 0 0 1-.953.395H8.197a1.36 1.36 0 0 1-1.362-1.362M19.09 8.995l-4.085-4.086" />
-                                            </g>
-                                        </svg> Update
-                                    </button>
-                                    <button class="bg-red-500 hover:bg-red-700 text-white px-2 py-1 font-bold rounded-md flex gap-1"
-                                        @click="deleteLine(index)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M10 5h4a2 2 0 1 0-4 0M8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM14.25 9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75m-7.516 9.467a2.25 2.25 0 0 0 2.24 2.033h6.052a2.25 2.25 0 0 0 2.24-2.033L18.424 6.5H5.576z" />
-                                        </svg>Delete
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <section class="w-[100%] h-screen">
+        <div class="bg-[#F1F5F9] h-[100%]">
+            <h1 class="font-bold text-3xl bg-gray-300 p-4 text-center">Liste des criteres</h1>
+            <div class="max-w-[96%] mx-auto">
+                <div class="my-4 flex justify-end">
+                    <button class="flex gap-4 bg-blue-500 hover:bg-blue-700 text-white px-3 py-3 mr-12 font-bold rounded-md"
+                        @click="openForm(false)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 12 12">
+                            <path fill="currentColor"
+                                d="M6 1.75a.75.75 0 0 1 .75.75v2.75H9.5a.75.75 0 0 1 0 1.5H6.75V9.5a.75.75 0 0 1-1.5 0V6.75H2.5a.75.75 0 0 1 0-1.5h2.75V2.5A.75.75 0 0 1 6 1.75" />
+                        </svg>
+                        <span>
+                            Add new critere
+                        </span>
+                    </button>
+                </div>
+                <div>
+                    <table class="mx-auto w-full  text-center ">
+                        <thead>
+                            <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 ">
+                                <th class=" p-2   bg-gray-300 text-center">N°</th>
+                                <th class=" p-2   bg-gray-300 text-center w-4/5">Criteres</th>
+                                <th class=" p-2 bg-gray-300 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-200 dark:hover:bg-gray-70 odd:bg-[#F8FAFC] even:bg-[#cbd5e1b2] cursor-pointer" v-for="(critere, index) in criteres" :key="index" >
+                                <td class=" dark:hover:bg-gray-70    p-2 text-center">{{ index + 1 }}</td>
+                                <td class=" dark:hover:bg-gray-70    p-2">{{ critere.name }}</td>
+                                <td class=" dark:hover:bg-gray-70   p-2 text-center">
+                                    <div class="flex gap-3 justify-center items-center h-full">
+            
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 py-1 font-bold rounded-md flex gap-1" @click="openForm(true, critere, index)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
+                                                <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5">
+                                                    <path
+                                                        d="M19.09 14.441v4.44a2.37 2.37 0 0 1-2.369 2.369H5.12a2.37 2.37 0 0 1-2.369-2.383V7.279a2.356 2.356 0 0 1 2.37-2.37H9.56" />
+                                                    <path
+                                                        d="M6.835 15.803v-2.165c.002-.357.144-.7.395-.953l9.532-9.532a1.36 1.36 0 0 1 1.934 0l2.151 2.151a1.36 1.36 0 0 1 0 1.934l-9.532 9.532a1.36 1.36 0 0 1-.953.395H8.197a1.36 1.36 0 0 1-1.362-1.362M19.09 8.995l-4.085-4.086" />
+                                                </g>
+                                            </svg> Update
+                                        </button>
+                                        <button class="bg-red-500 hover:bg-red-700 text-white px-2 py-1 font-bold rounded-md flex gap-1"
+                                            @click="deleteLine(index)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M10 5h4a2 2 0 1 0-4 0M8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM14.25 9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75m-7.516 9.467a2.25 2.25 0 0 0 2.24 2.033h6.052a2.25 2.25 0 0 0 2.24-2.033L18.424 6.5H5.576z" />
+                                            </svg>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>

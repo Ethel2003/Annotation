@@ -1,8 +1,8 @@
 <script setup>
-import HeaderApp from '../components/Dashboard/HeaderApp.vue'
-import SidebarApp from '../components/Dashboard/SidebarApp.Vue'
-import FooterApp from '../components/Dashboard/FooterApp.Vue'
-import MainApp from '@/components/Dashboard/MainApp.vue'
+import HeaderApp from '../components/HeaderApp.Vue'
+import SidebarApp from '../components/SidebarApp.Vue'
+import FooterApp from '../components/FooterApp.Vue'
+import MainApp from '@/components/MainApp.vue'
 </script>
 
 <template>
@@ -21,3 +21,4 @@ import MainApp from '@/components/Dashboard/MainApp.vue'
 </template>
 
 <style scoped></style>
+
