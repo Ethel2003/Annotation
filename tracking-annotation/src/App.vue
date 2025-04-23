@@ -1,12 +1,10 @@
 <script setup>
-import RoleView from './views/RoleView.vue';
+import { RouterView } from 'vue-router'
 
 </script>
 
 <template>
-  <div>
-    <RoleView></RoleView>
-  </div>
+<RouterView />
 </template>
 
 <style scoped></style>
