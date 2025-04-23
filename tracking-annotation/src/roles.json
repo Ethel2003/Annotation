@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "libelleRole": "Admin"
+    },
+    {
+        "id": 2,
+        "libelleRole": "Evaluateur"
+    },
+    {
+        "id": 3,
+        "libelleRole": "Annotateur"
+    }
+]
