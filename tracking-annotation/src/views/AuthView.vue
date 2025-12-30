@@ -3,30 +3,30 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { users,roles } from '../data/userData'
- 
+
 const loginInput = ref('')
 const passwordInput = ref('')
 const errorMessage = ref('')
 const router = useRouter()
- 
+
 /**
- * fonction pour se connecter
- */
+* fonction pour se connecter
+*/
 function login() {
-  const user = users.value.find(
-    u => (u.login === loginInput.value) && (u.password === passwordInput.value)
-  )
+ const user = users.value.find(
+  u => (u.login === loginInput.value) && (u.password === passwordInput.value)
+ )
  
-  if (!user) {
-    errorMessage.value = 'Identifiant ou mot de passe incorrect.'
-  } else {
+ if (!user) {
+  errorMessage.value = 'Identifiant ou mot de passe incorrect.'
+ } else {
   console.log('user connecté');
     
-    errorMessage.value = ''
+  errorMessage.value = ''
 //enregistrer les données de l'utilisateur dans localStorage
-    localStorage.setItem('currentUser', JSON.stringify(user))
-    router.push(`/${roles.value[user.role_id-1].libelleRole}`) // redirection vers /admin ou /annotateur ou /evaluateur
-  }
+  localStorage.setItem('currentUser', JSON.stringify(user))
+  router.push(`/${roles.value[user.role_id-1].libelleRole}`) // redirection vers /admin ou /annotateur ou /evaluateur
+ }
 }
 
 </script>
