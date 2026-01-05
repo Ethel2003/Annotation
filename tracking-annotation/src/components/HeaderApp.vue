@@ -16,15 +16,15 @@ onMounted(() => {
 
 <template>
   <div
-    class="flex justify-between items-center w-full border-b border-slate-200 shadow-md px-6 py-3 bg-white  z-20 max-h-[30%]"
+    class="flex justify-between items-center w-full border-b border-slate-200 px-6 py-5 bg-white z-20"
   >
     <!-- Logo & Search -->
     <div class="flex items-center gap-10 w-1/2">
-      <div class="h-20 flex items-center">
+      <!-- <div class="h-20 flex items-center">
         <img src="../assets/image/fdd.svg" alt="logo" class="h-35" />
-      </div>
+      </div> -->
 
-      <div class="w-full max-w-md min-w-[300px]">
+      <!-- <div class="w-full max-w-md min-w-[300px]">
         <div class="relative flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ onMounted(() => {
             Search
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- User section -->

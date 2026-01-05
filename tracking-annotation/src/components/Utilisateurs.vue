@@ -131,7 +131,7 @@ function addUser() {
 </script>
 
 <template>
-  <div class="p-1">
+  <div class="p-1 min-h-screen">
 
      <!-- Header -->
      <div class="flex items-center justify-between mb-6">

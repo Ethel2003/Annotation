@@ -163,7 +163,7 @@ function edit(index){
 
 <template>
     <!-- Tableau affichant la liste des tâches -->
-    <section class="w-[100%] h-screen">
+    <section class="w-[100%] min-h-screen">
         <div class=" mx-auto bg-[#F1F5F9] p-[2em] h-[100%]">
             <div class=" flex justify-between items-center">
                 <h1 class="font-bold text-2xl mr-[1em]">Enregistrement d'une piste audio</h1>
